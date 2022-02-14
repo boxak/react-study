@@ -1,9 +1,9 @@
-import logo from "./logo.svg";
-import "./App.css";
-import React from "react";
+import logo from './logo.svg';
+import './App.css';
+import React from 'react';
 
 function App() {
-  const name = "리액트";
+  const name = '리액트';
   return (
     <div>
       <div className="react">{name}</div>
