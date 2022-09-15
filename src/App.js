@@ -4,8 +4,9 @@ import React, { Component } from 'react';
 import MyComponent from './MyComponent';
 import Counter from './Counter';
 
-const App = () => {
-  return <Counter />
+function App() {
+  const name = undefined;
+  return name;
 }
 
-export default App;
+// export default App;
