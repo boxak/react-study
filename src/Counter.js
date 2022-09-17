@@ -7,12 +7,17 @@ class Counter extends Component {
     };
 
     render() {
-        const { number, fixedNumber } = this.state;
+        const { number, fixedNumber } = this.state; // state 를 조회할 때는 this.state로 조회한다.
         return (
             <div>
                 <h1>{number}</h1>
                 <h2>바뀌지 않는 값 : {fixedNumber}</h2>
-                <button onClick={()=>{this.setState({number : number+1});}}>+1</button>
+                <button onClick={()=>{
+                    this.setState(prevState => {
+                        return {
+                            number : prevState.number + 1
+                        }
+                    });}}>+1</button>
             </div>
         );
     }
