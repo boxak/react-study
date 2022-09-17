@@ -1,5 +1,6 @@
 import './App.css';
 import MyComponent from './MyComponent';
+import Counter from './Counter';
 
 function App() {
   const name = '리액트';
@@ -12,8 +13,9 @@ function App() {
   };
 
   return (
-    <MyComponent name="React"
-    favoriteNumber={1}> 리액트</MyComponent>
+    // <MyComponent name="React"
+    // favoriteNumber={1}> 리액트</MyComponent>
+    <Counter />
   );
 }
 
