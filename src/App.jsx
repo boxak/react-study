@@ -1,6 +1,7 @@
 import './App.css';
 import MyComponent from './MyComponent';
 import Counter from './Counter';
+import Say from './Say';
 
 function App() {
   const name = '리액트';
@@ -11,11 +12,12 @@ function App() {
     fontWeight: 'bold',
     padding: 16,
   };
+  //
 
   return (
     // <MyComponent name="React"
     // favoriteNumber={1}> 리액트</MyComponent>
-    <Counter />
+    <Say />
   );
 }
 
