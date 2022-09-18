@@ -6,10 +6,6 @@ class EventPractice extends Component {
     username:''
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   handleChange = (e) => {
     // 객체 안에서 key를 []로 감싸면 그 안에 넣은
     // 레퍼런스가 가리키는 실제 값이 key로 사용.
@@ -24,6 +20,12 @@ class EventPractice extends Component {
         message : '',
         username:''
     });
+  }
+
+  handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+        this.handleClick();
+    }
   }
 
   render() {
@@ -43,6 +45,7 @@ class EventPractice extends Component {
           placeholder="아무거나 입력해 보세요"
           value={this.state.message}
           onChange={this.handleChange}
+          onKeyPress={this.handleKeyPress}
         ></input>
         <button
           onClick={this.handleClick}
