@@ -3,23 +3,20 @@ import MyComponent from './MyComponent';
 import Counter from './Counter';
 import Say from './Say';
 import EventPractice from './EventPractice';
+import ValidationSample from './ValidationSample';
+import ScrollBox from './ScrollBox';
+import React, { Component } from 'react';
 
-function App() {
-  const name = '리액트';
-  const style = {
-    backgroundColor: 'black',
-    color: 'aqua',
-    fontSize: '48px',
-    fontWeight: 'bold',
-    padding: 16,
+class App extends Component {
+
+  render() {
+    return(
+      <div>
+      <ScrollBox ref={(ref)=>this.scrollBox=ref}/>
+      <button onClick={()=>this.scrollBox.scrollToBottom()}>맨 밑으로</button>
+    </div>
+    );
   };
-  //
-
-  return (
-    // <MyComponent name="React"
-    // favoriteNumber={1}> 리액트</MyComponent>
-    <EventPractice />
-  );
 }
 
 export default App;
