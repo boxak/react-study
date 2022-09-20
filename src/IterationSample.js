@@ -30,12 +30,30 @@ const IterationSample = () => {
         input.current.focus();
     }
 
-    const namesList = names.map(name => <li key={name.id}>{name.text}</li>);
+    const onRemove = id => {
+        const nextNames = names.filter(name => name.id !== id);
+        setNames(nextNames);
+    }
+
+    const onKeyPress = e => {
+        if (e.key === 'Enter') {
+            onClick();
+            input.current.focus();
+        }
+    }
+
+    const namesList = names.map(name => 
+    <li key={name.id} onDoubleClick={()=>onRemove(name.id)}>
+        {name.text}
+    </li>);
 
     return (
         <Fragment>
-            <input value={inputText} onChange={onChange} 
-            ref={input}/>
+            <input value={inputText} 
+            onChange={onChange} 
+            ref={input}
+            onKeyPress={onKeyPress}
+            />
             <button onClick={onClick}>추가</button>
             <ul>{namesList}</ul>
         </Fragment>
