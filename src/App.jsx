@@ -8,6 +8,7 @@ import ScrollBox from './ScrollBox';
 import React, { Component } from 'react';
 import IterationSample from './IterationSample';
 import LifeCycleSamle from './LifeCycleSamle';
+import ErrorBoundary from './ErrorBoundary';
 
 function getRandomColor() {
   return '#'+Math.floor(Math.random() * 16777215).toString(16);
@@ -29,7 +30,9 @@ class App extends Component {
     return(
       <div>
         <button onClick={this.handleClick}>랜덤 색상</button>
-        <LifeCycleSamle color = {this.state.color}/>
+        <ErrorBoundary>
+          <LifeCycleSamle color = {this.state.color}/>
+        </ErrorBoundary>
       </div>
     );
   };
