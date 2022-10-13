@@ -23,7 +23,7 @@ const EventPractice = () => {
             message : ''
         });
     };
-
+//
     const onKeyPress = e => {
         if (e.key === 'Enter') {
             onClick();
