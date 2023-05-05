@@ -1,41 +1,32 @@
+import { observer } from 'mobx-react';
 import './App.css';
-import MyComponent from './MyComponent';
-import Counter from './Counter';
-import Say from './Say';
-import EventPractice from './EventPractice';
-import ValidationSample from './ValidationSample';
-import ScrollBox from './ScrollBox';
-import React, { Component } from 'react';
-import IterationSample from './IterationSample';
-import LifeCycleSamle from './LifeCycleSamle';
-import ErrorBoundary from './ErrorBoundary';
+import React from 'react';
+import { useStore } from './context/MobxContext';
 
-function getRandomColor() {
-  return '#'+Math.floor(Math.random() * 16777215).toString(16);
-}
+const App = (props) => {
 
-class App extends Component {
+  const rootStore = useStore();
 
-  state = {
-    color : '#000000'
+  const userStore = rootStore.userStore;
+  const myStore = rootStore.myStore;
+
+  const inputOnKeyUp = (e) => {
+    userStore.setUserName(e.target.value);
   }
 
-  handleClick = () => {
-    this.setState({
-      color : getRandomColor()
-    });
-  }
-
-  render() {
-    return(
-      <div>
-        <button onClick={this.handleClick}>랜덤 색상</button>
-        <ErrorBoundary>
-          <LifeCycleSamle color = {this.state.color}/>
-        </ErrorBoundary>
-      </div>
-    );
-  };
+  return(
+    
+    <div>
+      <p>{myStore.getCount}</p>
+      <button onClick={() => myStore.increase()}>플러스</button>
+      <button onClick={() => myStore.decrease()}>마이너스</button>
+      <input type="text" 
+        onKeyUp={(e)=>inputOnKeyUp(e)}
+      />
+      <span>{userStore.userName}</span>
+    </div>
+    
+  );
 }
 
-export default App;
+export default observer(App);
